@@ -1,0 +1,77 @@
+body,
+html {
+    /* background-color: url('Image/login.jpg');
+    background-size: cover;
+    background-position: center; */
+
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0);
+    /* Choose your preferred background color and adjust the alpha value for transparency */
+    color: #302b2b;
+    /* Choose your preferred text color */
+    text-align: center;
+    padding: 20px;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.motto {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+.motto-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.left {
+    /* height: 500px;
+    width: 500px; */
+    /* background-color: aqua; */
+    float: left;
+
+}
+
+
+.right {
+    background-color: rgb(0, 0, 0, 0);
+
+    /* background-color: aliceblue; */
+    width: 300px;
+
+    height: 300px;
+
+
+    margin-top: 100px;
+    float: right;
+    margin-right: 100px;
+
+    border-radius: 20px;
+
+
+
+
+}
+
+#h4 {
+
+    text-align: center;
+}
+
+.form-control {
+
+   
+    background-color: transparent;
+    outline:none;
+
+}
