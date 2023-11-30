@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\View;
 
 class User_controller extends Controller
 {
-    public function show()
+    public function show($id)
     {
 
 
@@ -22,7 +22,8 @@ class User_controller extends Controller
         Schedule.day_of_week,
         Schedule.start_time,
         Schedule.end_time,
-        Teachers.teacher_name
+        Teachers.teacher_name,
+        Teachers.teacher_id
     FROM
         StudentCourses
     JOIN
@@ -36,7 +37,7 @@ class User_controller extends Controller
     WHERE
         StudentCourses.student_id = ?
 
-', ['011200333']);
+', [$id]);
         // return $result;
         return view('home')->with('data', $result);
 
