@@ -16,7 +16,7 @@
             <a href="/">Solution</a>
             <a href="/">Virtual Communication</a>
             <a href="/">Project</a>
-            <a href="/" class="lg">Logout</a>
+            <a href="{{ route('login') }}" class="lg">Logout</a>
         </div>
     </div>
 

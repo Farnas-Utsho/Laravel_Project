@@ -29,13 +29,13 @@
             @csrf
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control"  placeholder="Enter Email" name="email"
-                    style="background-color: transparent; padding: 10px;">
+                <input type="text" class="form-control"  placeholder="Enter Email" name="email"value="{{ old('email') }}" required
+                    style="background-color: transparent; padding: 10px;" value="{{ old('email') }}" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="Enter Password" name="password"
-                    style="background-color: transparent;padding: 10px;">
+                <input type="password" class="form-control" placeholder="Enter Password"value="" name="password"
+                    style="background-color: transparent;padding: 10px;"  value="{{ old('password') }}" required>
             </div>
             <br>
             <div class="form-group">
@@ -46,7 +46,14 @@
         </form>
     </div>
 
+    <script>
+        // Clear input fields when the page is loaded
+        window.onload = function() {
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+        };
+    </script>
+
 </body>
 
 </html>
-
