@@ -8,34 +8,52 @@ use Illuminate\Support\Facades\DB;
 class issue_table extends Controller
 {
     public function problem(Request $req)
+
     {
-        $req->validate([
-            'des' => 'required|string|max:50',
-        ]);
 
-        $user = DB::insert('INSERT IGNORE INTO issue_table (problem_description,time_requested, date_requested,problem_document,status ) VALUES (?, ?,?, ?,?)', [
+       // return $req ;
+//          $req->validate([
+//     'des' => 'required|string|max:50',
+//     'doc' => 'required|file|mimes:jpeg,png,pdf,doc,docx,xls,xlsx,csv|max:10240',
+// ]);
 
+        $teacher=$req->teacher_id;
+        $student=$req->student_id;
 
+        $user = DB::insert('INSERT INTO problems (student_id,teacher_id,t_name ,course_id,section_id,s_name ,problem_text,time_requested, date_requested,problem_path,solved ) VALUES (?, ?,?, ?,?,?,?,?,?,?,?)', [
+
+            $req->student_id,
+            $req->teacher_id,
+            $req->teacher_name,
+            $req->course_id,
+            $req->section_id,
+            $req->section_name,
             $req->des,
             $req->time,
             $req->date,
             $req->doc,
             1
         ]);
-        return redirect('/student_time')->withInput()->with('success', 'Record created successfully');
+        // return $user;
+     return redirect()->route('problem', ['teacher_id' => $teacher, 'user_id' => $student])->withInput();
+
+
+
     }
 
-public function teacher_routine($t_id){
+public function teacher_routine($t_id,$student_id){
+
 
       $teacher_routine = DB::select("
-     SELECT schedule.*, courses.course_name, sections.section_name
+     SELECT schedule.*, courses.course_name, sections.section_name ,sections.section_id,teachers.teacher_name
      FROM schedule
      JOIN courses ON schedule.course_id = courses.course_id
      JOIN sections ON schedule.section_id = sections.section_id
+     JOIN teachers ON teachers.teacher_id = schedule.teacher_id
      WHERE schedule.teacher_id = :teacherId
      ", ['teacherId' =>$t_id]);
-// return $teacher_routine;
-  return view('/st_time')->with('data', $teacher_routine);
+   // return $teacher_routine;
+   return view('/st_time')->with(['data'=>$teacher_routine,'student_id'=>$student_id]);
 
 
 }

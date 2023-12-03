@@ -38,9 +38,9 @@ class User_controller extends Controller
         StudentCourses.student_id = ?
 
 ', [$id]);
-        // return $result;
-        return view('home')->with('data', $result);
 
+        // return view('home')->with('data'=>$result,'id'=>$id);
+        return view('home')->with(['data' => $result, 'id' => $id]);
 
 
 

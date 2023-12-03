@@ -16,7 +16,7 @@
         <div class="header-right">
           <a  href="/">Home</a>
           <a href="/">Solution</a>
-          <a href="/">Virtual Communication</a>
+          <a href="/">Meet Link</a>
           <a href="/">Project</a>
 
           <a href="/" class="lg">Logout</a>
@@ -37,12 +37,9 @@
         <div class="column-4">
             <table class="table table-bordered">
               <tr>
-                <th>Id</th>
-                <th>UserName</th>
-                <th>First_name</th>
-                <th>Last_name</th>
-                <th>Gender</th>
-                <th>Password</th>
+                <th>Course Code</th>
+                <th>Solution</th>
+
               </tr>
               @foreach ($paginatedResults as $user=>$x )
                 <tr>

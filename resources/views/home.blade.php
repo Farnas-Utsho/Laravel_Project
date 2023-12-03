@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Homepage</title>
+    <title>student Homepage</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -14,7 +14,7 @@
         <div class="header-right">
             <a href="/">Home</a>
             <a href="/">Solution</a>
-            <a href="/">Virtual Communication</a>
+            <a href="/">Meet Link</a>
             <a href="/">Project</a>
             <a href="/" class="lg">Logout</a>
         </div>
@@ -34,6 +34,7 @@
                 <div class="column-4">
                     <table class="table table-bordered">
                         <tr>
+                                <h1>{{ $id }}</h1>
                             <th>Course Code</th>
                             <th>Course Name</th>
                             <th>Section Name</th>
@@ -51,7 +52,8 @@
                                 <td class="td">{{ $x->start_time }}</td>
                                 <td class="td">{{ $x->end_time }}</td>
                                 <td class="td">{{ $x->teacher_name }}</td>
-                                <td><a href="{{ route('problem',$x->teacher_id) }}" class="btn btn-primary btn-sm">View</a></td>
+                                <td><a href="{{ route('problem',['teacher_id' => $x->teacher_id, 'user_id' => $id]) }}" class="btn btn-primary btn-sm">View</a></td>
+
                             </tr>
                         @endforeach
                     </table>

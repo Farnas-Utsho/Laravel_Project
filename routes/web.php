@@ -26,6 +26,13 @@ Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name(
 Route::get('/home/{id}', [User_controller::class, 'show'])->name('home');
 
 //Student problem entry
-Route::get('/st_time/{teacher_id}',[issue_table::class,'teacher_routine'])->name('problem');
+Route::get('/st_time/{teacher_id}/{user_id}',[issue_table::class,'teacher_routine'])->name('problem');
 Route::post('/add_info', [issue_table::class, 'problem'])->name('info');
+ //Studnet solution page
+ Route::get('/solution', function () {
+    return view('solution');
+ });
+
+
+
 

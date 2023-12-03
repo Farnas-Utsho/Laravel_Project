@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Custom Authentication</title>
+    <title>UIU Counseling Hour Management</title>
 
     <link rel="stylesheet" href="{{ asset('Css/login.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -22,6 +22,7 @@
 
     <div class="left"></div>
 
+
     <div class="right">
         <h4 id="h4">Login </h4>
         <hr style="color: black ">
@@ -30,19 +31,25 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" class="form-control"  placeholder="Enter Email" name="email"
-                    style="background-color: transparent; padding: 10px;">
+                    style="background-color: transparent; padding: 10px;" value="{{ old('email') }}">
+        @error('email')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" placeholder="Enter Password" name="password"
-                    style="background-color: transparent;padding: 10px;">
+                    style="background-color: transparent;padding: 10px;" value="{{old('password')  }}">
+        @error('email')
+            <span class="text-danger">{{ $message }}</span>
+        @enderror
             </div>
             <br>
             <div class="form-group">
                 <button class="btn btn-block btn-primary" type="submit">Log In</button>
             </div>
-
-            <a href="{{ url('/forgot-password') }}"  style="color: rgb(41, 37, 37); font-weight: bolder">Forgot Password? Click Here</a>
+         <a href="{{ url('/forgot-password') }}"  style="color: rgb(41, 37, 37); font-weight: bolder">Forgot Password? Click Here</a>
+           <input type="hidden" name="course_id" value="course Id sent">
         </form>
     </div>
 
