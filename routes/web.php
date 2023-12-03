@@ -10,7 +10,7 @@ use App\Http\Controllers\ResetPasswordController;
 //login
 Route::get('/', function () {
     return view('login');
- });
+ })->name('login');
  Route::post('/validate', [loginController::class, 'login'])->name('check');
 //password reset
 
