@@ -6,6 +6,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\User_controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\SolutionController;
 
 //login
 Route::get('/', function () {
@@ -29,9 +30,11 @@ Route::get('/home/{id}', [User_controller::class, 'show'])->name('home');
 Route::get('/st_time/{teacher_id}/{user_id}',[issue_table::class,'teacher_routine'])->name('problem');
 Route::post('/add_info', [issue_table::class, 'problem'])->name('info');
  //Studnet solution page
- Route::get('/solution', function () {
-    return view('solution');
- });
+ Route::get('/solution/{user_id}',[SolutionController::class,'show_reqlist'])->name('solution');
+ Route::get('/delete/{user_id}/{teacher_id}/{problem_id}',[SolutionController::class,'delete'])->name('delete');
+
+
+
 
 
 

@@ -13,9 +13,14 @@
         <a href="#default" class="logo"><img src="Image/uiu.png" alt="Logo" class="img"></a>
         <div class="header-right">
             <a href="/">Home</a>
-            <a href="/">Solution</a>
+       <input id="notification-count" type="text" class="notification-count" value="0" readonly>
+            <a href="{{ route('solution', $id) }}">Solution</a>
             <a href="/">Meet Link</a>
-            <a href="/">Project</a>
+
+
+
+
+
             <a href="{{ route('login') }}" class="lg">Logout</a>
         </div>
     </div>
@@ -66,5 +71,12 @@
         <p>Enhancing Education, Empowering Minds</p>
         <p><span>&copy;</span>2023 Illusion. All rights reserved</p>
     </div>
+    <script>
+
+      var count = {{ $count[0]->count }}; //
+
+
+    document.getElementById('notification-count').value = count;
+</script>
 </body>
 </html>

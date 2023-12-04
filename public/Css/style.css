@@ -1,15 +1,7 @@
 body {
-
     width: 100%;
     margin: 0;
     padding: 0;
-}
-
-
-.header {
-    overflow: hidden;
-    background-color: #74AFCB;
-    padding: 20px 10px;
 }
 
 /* Style the header links */
@@ -21,7 +13,6 @@ body {
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
-
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
@@ -33,11 +24,32 @@ body {
 /* Change the background color on mouse-over */
 .header a:hover {
     color: yellow;
-
 }
 
+.notification-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 15px; /* Adjust this value as needed */
+    margin-right: 200px; /* Adjust this value as needed */
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    font-size: 10px;
+    font-weight: bolder;
+    /* color: white; */
+    text-align: center;
+    border-color: black 2px solid;
+    border-radius: 50%;
+}
+.header {
+    overflow: hidden;
+    background-color: #74afcb;
+    padding: 20px 10px;
+    position: relative;
+    /* Adding notification  system */
+}
 /* Style the active/current link*/
-
 
 /* Float the link section to the right */
 .header-right {
@@ -45,10 +57,9 @@ body {
 }
 
 .lg {
-    background-color: #2A6D76;
+    background-color: #2a6d76;
 
     border-radius: 40px;
-
 }
 
 .footer {
@@ -56,7 +67,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #74AFCB;
+    background-color: #74afcb;
     color: white;
     text-align: center;
 }
@@ -74,10 +85,6 @@ body {
     }
 }
 
-
-
-
-
 @media screen and (min-width: 500px) {
     .box-right {
         /* display: flex;
@@ -94,10 +101,7 @@ body {
 
         border: black;
         border-radius: 10%;
-
     }
-
-
 }
 
 @media screen and (min-width: 500px) {
@@ -111,7 +115,6 @@ body {
 
         float: left;
         margin-left: 10px;
-
     }
 
     .h1 {
@@ -119,14 +122,11 @@ body {
     }
 
     .image {
-
         height: 200px;
         width: 200px;
         border: 50%;
         margin-top: 10px;
         margin-left: 10px;
-
-
     }
 
     .profile {
@@ -141,17 +141,13 @@ body {
         text-align: center;
         font-weight: bold;
         font-size: 15px;
-
-
     }
 
     .prof_tb {
-
         position: absolute;
         top: 20%;
         left: 20%;
     }
-
 }
 
 .img {

@@ -35,7 +35,8 @@ class issue_table extends Controller
             1
         ]);
         // return $user;
-     return redirect()->route('problem', ['teacher_id' => $teacher, 'user_id' => $student])->withInput();
+
+     return redirect()->route('problem', ['teacher_id' => $teacher, 'user_id' => $student,])->withInput();
 
 
 
@@ -53,7 +54,8 @@ public function teacher_routine($t_id,$student_id){
      WHERE schedule.teacher_id = :teacherId
      ", ['teacherId' =>$t_id]);
    // return $teacher_routine;
-   return view('/st_time')->with(['data'=>$teacher_routine,'student_id'=>$student_id]);
+   $count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND student_id=:id",[$student_id]);
+   return view('/st_time')->with(['data'=>$teacher_routine,'student_id'=>$student_id,'count'=>$count]);
 
 
 }

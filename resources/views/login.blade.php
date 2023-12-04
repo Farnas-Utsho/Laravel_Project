@@ -36,7 +36,7 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" placeholder="Enter Password"value="" name="password"
-                    style="background-color: transparent;padding: 10px;"  value="{{ old('password') }}" required>
+                    style="background-color: transparent;padding: 10px;"   required>
             </div>
             <br>
             <div class="form-group">
@@ -47,13 +47,7 @@
         </form>
     </div>
 
-    <script>
-        // Clear input fields when the page is loaded
-        window.onload = function() {
-            document.getElementById('email').value = '';
-            document.getElementById('password').value = '';
-        };
-    </script>
+
 
 </body>
 

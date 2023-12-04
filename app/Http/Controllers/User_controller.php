@@ -39,22 +39,14 @@ class User_controller extends Controller
 
 ', [$id]);
 
-        // return view('home')->with('data'=>$result,'id'=>$id);
-        return view('home')->with(['data' => $result, 'id' => $id]);
+$count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND student_id=:id",[$id]);
+      // return view('home')->with('data'=>$result,'id'=>$id);
+        return view('home')->with(['data' => $result, 'id' => $id,'count'=>$count]);
 
 
 
 
 
 
-
-
-
-
-
-        // $users = DB::select('SELECT * FROM user_details Where user_id=?', [1]);
-        // $paginator = new Paginator($results, '5');
-        // ->with('paginatedResults', $paginator)
-        //     ->with('data', $users);
-    }
+}
 }
