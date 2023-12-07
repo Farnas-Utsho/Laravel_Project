@@ -7,6 +7,8 @@ use App\Http\Controllers\User_controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SolutionController;
+use App\Http\Controllers\teacherHome;
+use App\Http\Controllers\teacherRequest;
 
 //login
 Route::get('/', function () {
@@ -33,9 +35,31 @@ Route::post('/add_info', [issue_table::class, 'problem'])->name('info');
  Route::get('/solution/{user_id}',[SolutionController::class,'show_reqlist'])->name('solution');
  Route::get('/delete/{user_id}/{teacher_id}/{problem_id}',[SolutionController::class,'delete'])->name('delete');
 
+Route::get('/problem', function () {
+    return view('teacher_solution');
+ });
+
+
+                                    //Teacher Part
+//Teacher Home
+// Route::get('/teacher', function () {
+//     return view('teacher_home');
+//  });
+ Route::get('/teacher/{t_id}',[teacherhome::class,'teacher_routine'])->name('teacher');
 
 
 
 
+//Teacher_reqst
+// Route::get('/teach', function () {
+//     return view('teacher_request');
+//  });
+ Route::get('/request/{user_id}',[teacherRequest::class,'show_reqlist'])->name('request_list');
+Route::get('/show_reqst/{user_id}/{student_id}/{problem_id}',[teacherRequest::class,'show_req'])->name('show_reqst');
+Route::get('/delete_reqst/{user_id}/{student_id}/{problem_id}',[teacherRequest::class,'delete'])->name('del_reqst');
 
+//Teacher Solution
+Route::get('/problem_statement/{user_id}/{student_id}/{problem_id}', [teacherRequest::class, 'show_req'])->name('problem');
 
+Route::get('/update/{user_id}/{student_id}/{problem_id}',[teacherRequest::class,'sol_view'])->name('solution_form');
+Route::post('/update',[teacherRequest::class,'solution'])->name('solution');

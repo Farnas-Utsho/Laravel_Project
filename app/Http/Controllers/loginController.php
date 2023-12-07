@@ -18,20 +18,23 @@ class loginController extends Controller
 
 
          $user = DB::select('SELECT * FROM users WHERE email = ? LIMIT 1', [$credentials['email']]);
-        //   return $user;
+         // return $user;
 
    if (!empty($user)) {
     if ($credentials['email'] == $user[0]->email) {
-        if ( password_verify($credentials['password'],$user[0]->password)) {
+        if ( ($credentials['password']==$user[0]->password)) {
+
+
+
             $role = $user[0]->role;
             if ($role == "Student") {
                 return redirect()->intended('/home/' . $user[0]->id)->with('success', 'Login successful');
             }
-        }
-        else {
 
-            return redirect('/')->withInput()->withErrors(['password' => 'Incorrect password']);
+         else{
+                 return redirect()->intended('/teacher/' . $user[0]->id)->with('success', 'Login successful');
         }
+          //return redirect()->intended('/t_home/' . $user[0]->id)->with('success', 'Login successful');
     }
     else {
 
@@ -42,11 +45,12 @@ else {
     return redirect('/')->withInput()->withErrors(['email' => 'Incorrect email']);
     }
 
+ }
+
+
+
+
+
 }
-
-
-
-
-
 }
 
