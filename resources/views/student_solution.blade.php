@@ -16,10 +16,11 @@
             <img src="Image/uiu.png" alt="Logo" class="img">
         </a>
         <div class="header-right">
-            {{-- <a href="{{ route('teacher',$user_id) }}">Home</a>
-          <input id="notification-count" type="text" class="notification-count" value="0" readonly>
-   <a href="{{ route('request_list',$user_id) }}">solution</a> --}}
+       <a href="{{ route('home',$user_id) }}">Home</a>
+            <input id="notification-count" type="text" class="notification-count" value="0" readonly>
+            <a href="{{ route('st_solution', $user_id) }}">Solution</a>
             <a href="/">Meet Link</a>
+
             <a href="/" class="lg">Logout</a>
         </div>
     </div>
@@ -76,7 +77,7 @@
                     <br>
                     <br>
 
-           
+
             </div>
         </div>
     </div>
@@ -89,9 +90,9 @@
         <p><span>&copy;</span>2023 Illusion. All rights reserved</p>
     </div>
 </body>
-{{-- <script>
+<script>
     var count = {{ $count[0]->count }};
     document.getElementById('notification-count').value = count;
-</script> --}}
+</script>
 
 </html>
