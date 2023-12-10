@@ -18,9 +18,9 @@
         <div class="header-right">
              <a href="{{ route('home',$student_id) }}">Home</a>
             <input id="notification-count" type="text" class="notification-count" value="0" readonly>
-            <a href="{{ route('solution', $student_id) }}">Solution</a>
+            <a href="{{ route('st_solution', $student_id) }}">Solution</a>
             <a href="/">Meet Link</a>
-            
+
             <a href="/" class="lg">Logout</a>
         </div>
     </div>

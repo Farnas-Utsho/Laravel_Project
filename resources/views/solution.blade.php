@@ -15,7 +15,7 @@
             <a href="{{ route('home', $user_id) }}">Home</a>
 
     <input id="notification-count" type="text" class="notification-count" value="0" readonly>
-    <a href="{{ route('solution', $user_id) }}">Solution</a>
+    <a href="{{ route('st_solution', $user_id) }}">Solution</a>
 
 
             <a href="/">Meet Link</a>
@@ -57,7 +57,7 @@
 
                                 @else
                                         <td class="td"> Solved</td>
-                                     <td><a href=""class="btn btn-primary btn-sm">View</a></td>
+                                     <td><a href="{{ route('show_solution', ['user_id' => $user_id, 'teacher_id' => $x->teacher_id,'problem_id'=>$x->problem_id]) }}"class="btn btn-primary btn-sm">View</a></td>
                                      <td><a href="{{ route('delete', ['user_id' => $user_id, 'teacher_id' => $x->teacher_id,'problem_id'=>$x->problem_id]) }}" class="btn btn-danger btn-sm">Delete</a></td>
 
                                 @endif

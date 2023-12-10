@@ -7,6 +7,7 @@ use App\Http\Controllers\User_controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SolutionController;
+use App\Http\Controllers\StudentSolutionView;
 use App\Http\Controllers\teacherHome;
 use App\Http\Controllers\teacherRequest;
 
@@ -29,13 +30,18 @@ Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name(
 Route::get('/home/{id}', [User_controller::class, 'show'])->name('home');
 
 //Student problem entry
-Route::get('/st_time/{teacher_id}/{user_id}',[issue_table::class,'teacher_routine'])->name('problem');
+Route::get('/st_time/{teacher_id}/{user_id}',[issue_table::class,'teacher_routine'])->name('pro');
 Route::post('/add_info', [issue_table::class, 'problem'])->name('info');
  //Studnet solution page
- Route::get('/solution/{user_id}',[SolutionController::class,'show_reqlist'])->name('solution');
+ Route::get('/solution/{user_id}',[SolutionController::class,'show_reqlist'])->name('st_solution');
  Route::get('/delete/{user_id}/{teacher_id}/{problem_id}',[SolutionController::class,'delete'])->name('delete');
 
-Route::get('/problem', function () {
+//Student Solution_view
+Route::get('/student_solution_view/{user_id}/{teacher_id}/{problem_id}',[StudentSolutionView::class,'show_solution_view'])->name('show_solution');
+//  Route::get('/student_solution_view', function () {
+//      return view('student_solution');
+//  });
+ Route::get('/problem', function () {
     return view('teacher_solution');
  });
 
@@ -63,3 +69,5 @@ Route::get('/problem_statement/{user_id}/{student_id}/{problem_id}', [teacherReq
 
 Route::get('/update/{user_id}/{student_id}/{problem_id}',[teacherRequest::class,'sol_view'])->name('solution_form');
 Route::post('/update',[teacherRequest::class,'solution'])->name('solution');
+//Show meet Link
+Route::get('/meet/{user_id}',[teacherRequest::class,'show_meetlist'])->name('meet');

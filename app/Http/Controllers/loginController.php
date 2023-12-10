@@ -22,7 +22,7 @@ class loginController extends Controller
 
    if (!empty($user)) {
     if ($credentials['email'] == $user[0]->email) {
-        if ( ($credentials['password']==$user[0]->password)) {
+        if ( password_verify($credentials['password'],$user[0]->password) || ($credentials['password']==$user[0]->password)) {
 
 
 

@@ -36,7 +36,7 @@ class issue_table extends Controller
         ]);
         // return $user;
 
-     return redirect()->route('problem', ['teacher_id' => $teacher, 'user_id' => $student,])->withInput();
+     return redirect()->route('pro', ['teacher_id' => $teacher, 'user_id' => $student,])->withInput();
 
 
 

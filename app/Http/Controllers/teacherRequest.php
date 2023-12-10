@@ -84,4 +84,23 @@ return view('teacher_probcol')->with([ 'user_id' => $req->user_id,'student_id'=>
 
 }
 
+public function show_meetlist($user_id){
+
+     $list=DB::select('select *
+
+        from problems
+
+        join Courses ON problems.course_id=Courses.course_id
+
+
+        where teacher_id = ?', [$user_id]);
+        $count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND teacher_id=:id",[$user_id]);
+       // return $list;
+       $count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND teacher_id=:id",[$user_id]);
+
+       return view('teacher_meet')->with(['data' => $list, 'user_id' => $user_id,'count'=>$count]);
+
+}
+
+
 }
