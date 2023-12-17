@@ -10,9 +10,10 @@
 </head>
 <body>
     <div class="header">
-        <a href="#default" class="logo"><img src="Image/uiu.png" alt="Logo" class="img"></a>
+                           <a href="#default" class="logo"><img src="{{ asset('Image/uiu.png') }}" alt="Logo" class="img"></a>
+
         <div class="header-right">
-            <a href="/">Home</a>
+             <a href="{{ route('teacher', $id) }}">Home</a>
        <input id="notification-count" type="text" class="notification-count" value="0" readonly>
             <a href="{{ route('request_list',$id) }}">Request</a>
             <a href="{{ route('meet',$id) }}">Meet Link</a>

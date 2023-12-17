@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="header">
-        <a href="#default" class="logo"><img src="Image/uiu.png" alt="Logo" class="img"></a>
+            <a href="#default" class="logo"><img src="{{ asset('Image/uiu.png') }}" alt="Logo" class="img"></a>
         <div class="header-right">
             <a href="{{ route('home', $user_id) }}">Home</a>
 
