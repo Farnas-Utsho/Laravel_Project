@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Session;
 
 use Illuminate\Http\Request;
 
@@ -47,17 +48,29 @@ class teacherRequest extends Controller
   //Teacher can delete reqst
 
  public function delete($user_id, $student_id,$problem_id) {
+     $list=DB::select('select *
 
-    $user = DB::delete("DELETE FROM problems WHERE teacher_id = ? AND problem_id=?", [$user_id, $student_id,$problem_id]);
+        from problems
 
-    return redirect()->route('teacher_request', ['user_id' => $user_id]);
+        join Courses ON problems.course_id=Courses.course_id
+
+
+        where teacher_id = ?', [$user_id]);
+        $count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND teacher_id=:id",[$user_id]);
+       // return $list;
+     
+
+    $user = DB::delete("DELETE FROM problems WHERE teacher_id = ? And student_id=?  AND problem_id=? ", [$user_id, $student_id,$problem_id]);
+    Session::flash('success', 'Request  has been deleted ');
+     $count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND teacher_id=:id",[$user_id]);
+     return view('teacher_request')->with([ 'data' => $list,'user_id' => $user_id,'student_id'=> $student_id,'problem_id'=>$problem_id,'count'=>$count]);
 }
 
 
 
 //Teacher can add solution at this section
 public function sol_view($user_id, $student_id,$problem_id){
-    $count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND teacher_id=:id",[$user_id]);
+    $count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND teacher_id=?",[$user_id]);
    return view('teacher_probcol')->with([ 'user_id' => $user_id,'student_id'=> $student_id,'problem_id'=>$problem_id,'count'=>$count]);
 }
 public function solution(Request $req){
@@ -78,6 +91,7 @@ $update=DB::table('problems')
 
         ]
 );
+Session::flash('success', 'Solution has been added .');
   $count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND teacher_id=:id",[$req->user_id]);
 return view('teacher_probcol')->with([ 'user_id' => $req->user_id,'student_id'=> $req->student_id,'problem_id'=>$req->problem_id,'count'=>$count]);
 

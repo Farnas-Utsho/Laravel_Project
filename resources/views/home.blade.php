@@ -15,7 +15,7 @@
             <a href="/">Home</a>
        <input id="notification-count" type="text" class="notification-count" value="0" readonly>
             <a href="{{ route('st_solution', $id) }}">Solution</a>
-            <a href="/">Meet Link</a>
+         <a href="{{ route('student_meetlist',$id) }}">Meet Link</a>
 
 
 

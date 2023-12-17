@@ -35,15 +35,14 @@ Route::post('/add_info', [issue_table::class, 'problem'])->name('info');
  //Studnet solution page
  Route::get('/solution/{user_id}',[SolutionController::class,'show_reqlist'])->name('st_solution');
  Route::get('/delete/{user_id}/{teacher_id}/{problem_id}',[SolutionController::class,'delete'])->name('delete');
-
+//Student Meet link  page
+Route::get('/stu_meet/{user_id}',[SolutionController::class,'show_student_meetlist'])->name("student_meetlist");
 //Student Solution_view
 Route::get('/student_solution_view/{user_id}/{teacher_id}/{problem_id}',[StudentSolutionView::class,'show_solution_view'])->name('show_solution');
 //  Route::get('/student_solution_view', function () {
 //      return view('student_solution');
 //  });
- Route::get('/problem', function () {
-    return view('teacher_solution');
- });
+
 
 
                                     //Teacher Part

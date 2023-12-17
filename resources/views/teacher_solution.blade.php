@@ -19,7 +19,7 @@
             <a href="{{ route('teacher',$user_id) }}">Home</a>
           <input id="notification-count" type="text" class="notification-count" value="0" readonly>
    <a href="{{ route('request_list',$user_id) }}">Request</a>
-            <a href="/">Meet Link</a>
+                <a href="{{ route('meet',$user_id) }}">Meet Link</a>
             <a href="/" class="lg">Logout</a>
         </div>
     </div>

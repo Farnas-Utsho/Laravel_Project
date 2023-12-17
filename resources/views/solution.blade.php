@@ -18,7 +18,7 @@
     <a href="{{ route('st_solution', $user_id) }}">Solution</a>
 
 
-            <a href="/">Meet Link</a>
+          <a href="{{ route('student_meetlist',$user_id) }}">Meet Link</a>
 
             <a href="{{ route('login') }}" class="lg">Logout</a>
         </div>
@@ -35,6 +35,20 @@
         </div>
 
         <div class="box-right">
+            @if(Session::has('success'))
+    <div id="successMessage" class="alert alert-success">
+        {{ Session::get('success') }}
+    </div>
+
+    <script>
+        // Add a delay and then hide the success message
+        setTimeout(function(){
+            document.getElementById('successMessage').style.display = 'none';
+        }, 1000);
+    </script>
+@endif
+
+
             <div class="row">
                 <div class="column-4">
                     <table class="table table-bordered">
@@ -53,7 +67,7 @@
                                 <td class="td">{{ $x->t_name }}</td>
                                 @if ($x->solved ==1)
                                         <td class="td">Pending</td>
-                                 <td><a href="{{ route('delete', ['user_id' => $user_id, 'teacher_id' => $x->teacher_id,'problem_id'=>$x->problem_id]) }}" class="btn btn-danger btn-sm">Delete</a></td>
+                                <td><a href="{{ route('delete', ['user_id' => $user_id, 'teacher_id' => $x->teacher_id,'problem_id'=>$x->problem_id]) }}" class="btn btn-danger btn-sm">Delete</a></td>
 
                                 @else
                                         <td class="td"> Solved</td>
@@ -80,7 +94,7 @@
 
       var count = {{ $count[0]->count }}; //
 
-    // Update the textarea value with the count
+
     document.getElementById('notification-count').value = count;
 </script>
 </body>

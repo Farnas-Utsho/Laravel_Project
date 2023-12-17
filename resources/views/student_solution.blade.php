@@ -19,7 +19,7 @@
        <a href="{{ route('home',$user_id) }}">Home</a>
             <input id="notification-count" type="text" class="notification-count" value="0" readonly>
             <a href="{{ route('st_solution', $user_id) }}">Solution</a>
-            <a href="/">Meet Link</a>
+           <a href="{{ route('student_meetlist',$user_id) }}">Meet Link</a>
 
             <a href="/" class="lg">Logout</a>
         </div>
@@ -35,7 +35,7 @@
                     <tr>
                         <th>Solution Description</th>
                         <td class="td">
-                            <textarea id="description" style="resize: none" name="des" placeholder="Problem description ..." value='{{ old('des') }}' readonly>{{ $x->problem_text }}</textarea>
+                            <textarea id="description" style="resize: none" name="des" placeholder="Problem description ..." value='{{ old('des') }}' readonly>{{ $x->response_text }}</textarea>
                         </td>
                     </tr>
                     <tr>

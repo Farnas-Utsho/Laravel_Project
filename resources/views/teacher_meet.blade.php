@@ -18,8 +18,7 @@
     <a href="{{ route('request_list',$user_id) }}">Request</a>
 
 
-            <a href="/">Meet Link</a>
-
+               <a href="{{ route('meet',$user_id) }}">Meet Link</a>
             <a href="{{ route('login') }}" class="lg">Logout</a>
         </div>
     </div>

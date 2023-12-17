@@ -39,7 +39,7 @@ class User_controller extends Controller
 
 ', [$id]);
 
-$count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 1 AND student_id=:id",[$id]);
+$count = DB::select("SELECT COUNT(*) AS count FROM problems WHERE solved = 0 AND student_id=:id",[$id]);
       // return view('home')->with('data'=>$result,'id'=>$id);
         return view('home')->with(['data' => $result, 'id' => $id,'count'=>$count]);
 

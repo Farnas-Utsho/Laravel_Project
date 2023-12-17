@@ -20,7 +20,7 @@
 
             <input id="notification-count" type="text" class="notification-count" value="0" readonly>
             <a href="{{ route('request_list',$user_id) }}">Request</a>
-            <a href="/">Meet Link</a>
+               <a href="{{ route('meet',$user_id) }}">Meet Link</a>
             <a href="/" class="lg">Logout</a>
         </div>
     </div>
@@ -31,7 +31,18 @@
 
     <div class="uperbox">
 
+        @if(Session::has('success'))
+    <div id="successMessage" class="alert alert-success">
+        {{ Session::get('success') }}
+    </div>
 
+    <script>
+        // Add a delay and then hide the success message
+        setTimeout(function(){
+            document.getElementById('successMessage').style.display = 'none';
+        }, 1000); // Adjust the delay time in milliseconds (e.g., 1000ms = 1 second)
+    </script>
+@endif
                 <form action="{{ route('solution') }}" method="post" enctype="multipart/form-data">
                 @csrf
 

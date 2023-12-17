@@ -19,7 +19,7 @@
              <a href="{{ route('home',$student_id) }}">Home</a>
             <input id="notification-count" type="text" class="notification-count" value="0" readonly>
             <a href="{{ route('st_solution', $student_id) }}">Solution</a>
-            <a href="/">Meet Link</a>
+           <a href="{{ route('home',$student_id) }}">Meet Link</a>
 
             <a href="/" class="lg">Logout</a>
         </div>
@@ -57,8 +57,23 @@
             </div>
         </div>
 
+
         <!-- Form for Submitting the Problem -->
         <div class="lowerbox">
+     @if(Session::has('success'))
+    <div id="successMessage" class="alert alert-success">
+        {{ Session::get('success') }}
+    </div>
+
+    <script>
+        // Add a delay and then hide the success message
+        setTimeout(function(){
+            document.getElementById('successMessage').style.display = 'none';
+        }, 1000); // Adjust the delay time in milliseconds (e.g., 1000ms = 1 second)
+    </script>
+@endif
+
+
             <form action="{{ route('info') }}" method="post" enctype="multipart/form-data">
                 @csrf
                   @foreach ($data as $user=>$x )

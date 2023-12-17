@@ -18,7 +18,7 @@
     <a href="{{ route('request_list',$user_id) }}">Request</a>
 
 
-            <a href="/">Meet Link</a>
+            <a href="{{ route('meet',$user_id) }}">Meet Link</a>
 
             <a href="{{ route('login') }}" class="lg">Logout</a>
         </div>
@@ -29,6 +29,18 @@
         <h3 style="text-align: center">Request List</h3>
 
         <div class="box-right">
+            @if(Session::has('success'))
+    <div id="successMessage" class="alert alert-success">
+        {{ Session::get('success') }}
+    </div>
+
+    <script>
+        // Add a delay and then hide the success message
+        setTimeout(function(){
+            document.getElementById('successMessage').style.display = 'none';
+        }, 1000); // Adjust the delay time in milliseconds (e.g., 1000ms = 1 second)
+    </script>
+@endif
             <div class="row">
                 <div class="column-4">
                     <table class="table table-bordered">

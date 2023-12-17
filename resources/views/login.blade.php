@@ -32,12 +32,18 @@
                 <label for="email">Email</label>
                 <input type="text" class="form-control"  placeholder="Enter Email" name="email"value="{{ old('email') }}" required
                     style="background-color: transparent; padding: 10px;" value="{{ old('email') }}" required>
-            </div>
+                @error('email')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+                </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" placeholder="Enter Password"value="" name="password"
                     style="background-color: transparent;padding: 10px;"   required>
-            </div>
+                 @error('password')
+        <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+                </div>
             <br>
             <div class="form-group">
                 <button class="btn btn-block btn-primary" type="submit">Log In</button>
